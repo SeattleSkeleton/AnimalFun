@@ -1,12 +1,15 @@
 public class Snake extends AnimalAttributes implements Animal {
-	int x = getRandomStartPointX();
-    int y = getRandomStartPointY();;
-    int[] coordinates = {x, y};
     boolean isAlive = true;
-    
+    int xStepsPerMove = 1;
+    int yStepsPerMove = 1;
+    int moves = 1;
+
 	@Override
     public int[] move() {
-		return new int[0];
+        coordinates[1] = y -= 1;
+        coordinates[0] = x += 1 + xStepsPerMove * -1;
+
+        return coordinates;
     }
 
     @Override
