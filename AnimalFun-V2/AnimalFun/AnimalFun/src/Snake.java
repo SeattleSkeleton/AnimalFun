@@ -3,13 +3,18 @@ public class Snake extends AnimalAttributes implements Animal {
     int xStepsPerMove = 1;
     int yStepsPerMove = 1;
     int moves = 1;
-
+    int counter = 1;
 	@Override
     public int[] move() {
-        coordinates[1] = y -= 1;
-        coordinates[0] = x += 1 + xStepsPerMove * -1;
+        xStepsPerMove += 1;                 // Increases the steps taken West/East by 1
+        xStepsPerMove = xStepsPerMove * -1; // Changes the +/- sign of xStepsPerMove so that it can both subtract [cont. on next line]
+        // (go West) and add (go East) to the x coordinate
 
-        return coordinates;
+        y -= 1;
+        x += xStepsPerMove;
+
+        coordinates[0] = x;
+        coordinates[1] = y;        return coordinates;
     }
 
     @Override

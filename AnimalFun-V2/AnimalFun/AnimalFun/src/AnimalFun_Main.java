@@ -1,48 +1,34 @@
-import java.util.Arrays;
-
 public class AnimalFun_Main {
-    public static void main(String[] args) {
-    // NOTE: EVERYTHING IN THIS CLASS CAN BE DELETED AT ANY TIME; THIS CODE IS JUST HERE TO TEST THE OBJECTS/METHODS
-    	// this bit below is just to test that Bird is working properly.
-        // the output should look something like this:
-        /*    
-         *    'ANIMAL NAME' DEBUG:
-         *    [0, 0]
-         *    true
-         *    1, E
-         *    2, S
-         *    false
-         *    [1, -1]
-         */
-        
-    // testing Bird
-    	System.out.println("BIRD DEBUG:");
-    	Bird bird = new Bird();                                  // new Bird is created
-    	System.out.println(bird.getMove());                      // print to console what Bird is supposed to do
-        System.out.println(Arrays.toString(bird.getPosition())); // print to console Bird's current coordinates
-        
-        System.out.println(bird.getDeadOrAlive());               // print to console the state of Bird's life (dead/alive -> false/true)
-        bird.move();                                             // method call to make bird move
-        bird.move();                                             // second method call to make bird move
-        System.out.println(bird.kill());                         // test kill() method by killing the bird
+    static Bird bird = new Bird();
+    static Frog frog = new Frog();
+    static Mouse mouse = new Mouse();
+    static Rabbit rabbit = new Rabbit();
+    static Snake snake = new Snake();
+    static Turtle turtle = new Turtle();
+    static Wolf wolf = new Wolf();
+    static Cat cat = new Cat();
+    static Dog dog = new Dog();
 
-        System.out.println(Arrays.toString(bird.getPosition())); // get Bird's new position/coordinates
-        
-        
-        System.out.println(); // spacers
-        System.out.println(); // spacers
-        
-    // testing Frog
-        System.out.println("FROG DEBUG:");                       // format for Frog is identical to that of Bird
-        Frog frog = new Frog();
-        System.out.println(frog.getMove());
-        System.out.println(Arrays.toString(frog.getPosition()));
-        
-        System.out.println(frog.getDeadOrAlive());
-        frog.move();
-        frog.move();
-        System.out.println(bird.kill());
-        
-        System.out.println(Arrays.toString(frog.getPosition()));
+    public static void main(String[] args) {
+        System.out.println(cat.isAlive);
+        System.out.println(dog.isAlive);
+        checkCollision();
+        System.out.println(cat.isAlive);
+        System.out.println(dog.isAlive);
+
+        // output starting coordinates for each animal
+        // output when a collision is detected and output which animal died (if possible)
+        // output end coordinates
+
+        // likely best to have everything in a for-loop
+        // getPosition for each animal
+        // for(int i = 0; i < 'the number of times we want the animals to move'; i++) {
+        //      all the animals.move();
+        // }
+        // getPosition for each animal
+    }
+
+    private static void checkCollision() {
+        cat.kill();
     }
 }

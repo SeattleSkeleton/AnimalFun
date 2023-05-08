@@ -1,10 +1,9 @@
 public class Rabbit extends AnimalAttributes implements Animal {
-	int x = getRandomStartPointX();
-    int y = getRandomStartPointY();;
-    int[] coordinates = {x, y};
     boolean isAlive = true;
-    
-	@Override
+    int xStepsPerMove = 1;
+    int yStepsPerMove = 1;
+
+    @Override
     public int[] move() {
         y += 2;
         x += 2;

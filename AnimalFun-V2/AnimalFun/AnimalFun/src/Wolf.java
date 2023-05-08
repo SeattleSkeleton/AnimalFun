@@ -1,13 +1,13 @@
 public class Wolf extends AnimalAttributes implements Animal {
-	int x = getRandomStartPointX();
-    int y = getRandomStartPointY();;
-    int[] coordinates = {x, y};
     boolean isAlive = true;
-    
+    int xStepsPerMove = 1;
+    int yStepsPerMove = 1;
+
 	@Override
     public int[] move() {
-
-        return new int[0];
+        y += 1;
+        coordinates[1] = y;
+        return coordinates;
     }
 
     @Override
@@ -23,6 +23,6 @@ public class Wolf extends AnimalAttributes implements Animal {
 	@Override
 	public String getMove() {
 		// TODO Auto-generated method stub
-		return "Custom behavior that is yet to be defined";
+		return "Take one step North";
 	}
 }

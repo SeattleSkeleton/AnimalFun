@@ -1,10 +1,18 @@
 import java.util.Random;
 public abstract class AnimalAttributes {
     String name; // stores animal's name (i.e. "bird", "frog", etc)
-    int x; // stores animal's current x-coord
-    int y; // stores animal's current y-coord
+    int x = getRandomStartPointX(); // stores animal's current x-coord
+    int y = getRandomStartPointY(); // stores animal's current y-coord
     int[] coordinates = {x, y}; // stores animal's coords as an array for convenient access
+
     static boolean isAlive; // stores whether the animal is dead/alive
+
+    int domain = 16; // sets the domain of the simulated coordinate plane
+    int range = 16; // sets the range of the simulated coordinate plane
+
+    int xStepsPerMove; // allows us to bounce the animals off the boundaries of the y-axis by making this value negative
+    int yStepsPerMove; // allows us to bounce the animals off the boundaries of the x-axis by making this value negative
+
 
     public String getRandomDirection() { // generates a random int that corresponds to a cardinal direction (N, S, E, W)
         Random rand = new Random();
@@ -27,19 +35,14 @@ public abstract class AnimalAttributes {
             default:
                 throw new IllegalStateException("Unexpected value: " + randInt);
         }
-
-        System.out.println(randInt + ", " + randomDirection); // this line is for debugging purposes; it outputs the
-                                                              // random int generated, and the corresponding letter (feel free to delete)
-
         return randomDirection;
     }
     
 // This method allows us to kill the animals
     public boolean kill() {
-    	isAlive = false;
-    	return isAlive;
+    	return isAlive = false;
     }
-    
+
 // These methods below are for generating the starting coordinates of a given animal
     public int getRandomStartPointX() {
     	Random rand = new Random();

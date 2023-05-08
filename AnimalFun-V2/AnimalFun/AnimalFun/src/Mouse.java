@@ -1,10 +1,9 @@
 public class Mouse extends AnimalAttributes implements Animal {
-	int x = getRandomStartPointX();
-    int y = getRandomStartPointY();;
-    int[] coordinates = {x, y};
     boolean isAlive = true;
-    
-	@Override
+    int xStepsPerMove = 1;
+    int yStepsPerMove = 1;
+
+    @Override
     // Moves west 1 step, north 1 step (zig-zag to the northwest)
     public int[] move() {
         x -= 1;

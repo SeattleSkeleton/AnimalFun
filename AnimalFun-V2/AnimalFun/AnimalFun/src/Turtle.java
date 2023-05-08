@@ -1,9 +1,8 @@
 public class Turtle extends AnimalAttributes implements Animal {
-	int x = getRandomStartPointX();
-    int y = getRandomStartPointY();;
-    int[] coordinates = {x, y};
     boolean isAlive = true;
-    
+    int xStepsPerMove = 1;
+    int yStepsPerMove = 1;
+
 	@Override
     public int[] move() {
         y -= 5;

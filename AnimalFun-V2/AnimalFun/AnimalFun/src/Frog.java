@@ -1,35 +1,41 @@
 public class Frog extends AnimalAttributes implements Animal {
-	int x = getRandomStartPointX();
-    int y = getRandomStartPointY();;
-    int[] coordinates = {x, y};
     boolean isAlive = true;
-    
+    int xStepsPerMove = 3;
+    int yStepsPerMove = 3;
+
     @Override
     public int[] move() {
         final String DIRECTION = getRandomDirection();
 
+        if(isAlive = true) {
             switch (DIRECTION) {
                 case "N":
-                    y += 3;
+                    y += yStepsPerMove;
                     coordinates[1] = y; // added these lines because the program wasn't applying x/y's new value to 'coordinates'
                     break;
                 case "S":
-                    y -= 3;
+                    y -= yStepsPerMove;
                     coordinates[1] = y;
                     break;
                 case "E":
-                    x += 3;
+                    x += xStepsPerMove;
                     coordinates[0] = x;
                     break;
                 case "W":
-                    x -= 3;
+                    x -= xStepsPerMove;
                     coordinates[0] = x;
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + DIRECTION);
             }
+            return coordinates;
 
-        return coordinates;
+        } else {
+            coordinates[0] = 0;
+            coordinates[1] = 0;
+
+            return coordinates;
+        }
     }
 
     @Override
